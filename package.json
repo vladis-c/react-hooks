@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/vladis-c/react-hooks#readme",
   "dependencies": {},
+  "peerDependencies": {
+    "react": ">=16.8.0 <=18.x"
+  },
   "devDependencies": {
     "@types/react": "^18.3.5",
     "eslint": "^9.10.0",
