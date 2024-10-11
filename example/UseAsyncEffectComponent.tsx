@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import useAsyncEffect from '../src/useAsyncEffect';
 
-const ExampleComponent = () => {
+const UseAsyncEffectComponent = () => {
   const [data, setData] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -32,4 +32,4 @@ const ExampleComponent = () => {
   return <div>Data: {data}</div>;
 };
 
-export default ExampleComponent;
+export default UseAsyncEffectComponent;
