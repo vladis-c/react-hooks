@@ -1,7 +1,7 @@
 import {useEffect, useRef} from 'react';
 
 /**
- * A custom hook that skips the first invocation of `useEffect` on mount,
+ * `useDidMountEffect` is a hook that skips the first invocation of `useEffect` on mount,
  * effectively mimicking the behavior of `componentDidMount`.
  *
  * - Executes the callback function only after the component has mounted
