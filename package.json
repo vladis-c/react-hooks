@@ -1,6 +1,6 @@
 {
   "name": "@vladisc/react-hooks",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Useful react hooks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,7 +23,7 @@
     "react-dom": "^18.3.1"
   },
   "peerDependencies": {
-    "react": ">=16.8.0 <=18.x"
+    "react": ">=16.8.0 <=19.x"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.25.8",
