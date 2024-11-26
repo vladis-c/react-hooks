@@ -131,14 +131,6 @@ Run the tests to ensure the hooks work as expected:
 yarn test
 ```
 
-### Building the package
-
-To build the package:
-
-```bash
-yarn build
-```
-
 ## Contributing
 
 Feel free to contribute by opening an issue or creating a pull request on the GitHub repository.
