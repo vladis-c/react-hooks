@@ -28,13 +28,16 @@ const useSpread = <D extends Record<any, any> | any[] | null | undefined>(
 ): D => {
   const memoized = useMemo(
     () => {
-      if (!data || !Array.isArray(data) || typeof data !== 'object') {
+      if (!data) {
         return data;
+      }
+      if (Array.isArray(data)) {
+        return [...data];
       }
       if (typeof data === 'object') {
         return {...data};
       }
-      return [...data];
+      return data;
     },
     deps ? deps : [data],
   );

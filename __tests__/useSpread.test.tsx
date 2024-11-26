@@ -3,7 +3,11 @@ import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import useSpread from '../src/useSpread';
 
-const UseSpreadComponent = ({data}: {data: object | any[] | null}) => {
+const UseSpreadComponent = ({
+  data,
+}: {
+  data: Record<any, any> | any[] | null | undefined;
+}) => {
   const spreadData = useSpread(data);
 
   return (
@@ -19,7 +23,7 @@ describe('useSpread hook', () => {
     render(<UseSpreadComponent data={testData} />);
     const spreadData = screen.getByTestId('spread-data');
 
-    expect(spreadData).toHaveTextContent(JSON.stringify({a: 1, b: 2}, null, 2));
+    expect(spreadData.textContent).toBe(JSON.stringify(testData, null, 2));
   });
 
   it('spreads an array into a new array', () => {
@@ -27,20 +31,28 @@ describe('useSpread hook', () => {
     render(<UseSpreadComponent data={testData} />);
     const spreadData = screen.getByTestId('spread-data');
 
-    expect(spreadData).toHaveTextContent(JSON.stringify([1, 2, 3], null, 2));
+    expect(spreadData.textContent).toBe(JSON.stringify(testData, null, 2));
   });
 
-  it('returns undefined for null input', () => {
+  it('returns null for null input', () => {
     render(<UseSpreadComponent data={null} />);
     const spreadData = screen.getByTestId('spread-data');
 
-    expect(spreadData).toHaveTextContent('undefined');
+    expect(spreadData.textContent).toBe('null');
   });
 
   it('returns undefined for undefined input', () => {
-    render(<UseSpreadComponent data={undefined as any} />);
+    render(<UseSpreadComponent data={undefined} />);
     const spreadData = screen.getByTestId('spread-data');
 
-    expect(spreadData).toHaveTextContent('undefined');
+    expect(spreadData.textContent).toBe('');
+  });
+
+  it('returns the same value for non-object, non-array inputs', () => {
+    const testData = 'test-string';
+    render(<UseSpreadComponent data={testData as any} />);
+    const spreadData = screen.getByTestId('spread-data');
+
+    expect(spreadData.textContent).toBe(JSON.stringify(testData, null, 2));
   });
 });
