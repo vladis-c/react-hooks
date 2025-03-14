@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.5] - 2025-03-14
+
+### Added
+
+- Fixed issue when `useSpread` was not exported
+
+### Upgraded
+
+- React dependencies
+
 ## [1.0.4] - 2024-11-26
 
 ### Changed
