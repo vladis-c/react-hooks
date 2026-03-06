@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {render, screen} from '@testing-library/react';
+import {render, screen, act, RenderResult} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import useDidMountEffect from '../src/useDidMountEffect';
 
@@ -27,18 +27,25 @@ const UseDidMountEffectTestComponent = () => {
 
 describe('useDidMountEffect', () => {
   it('does not trigger callback on initial render', () => {
-    render(<UseDidMountEffectTestComponent />);
+    act(() => {
+      render(<UseDidMountEffectTestComponent />);
+    });
     const status = screen.getByTestId('callback-status');
     expect(status).toHaveTextContent('Not Triggered');
   });
 
   it('triggers callback on dependency change after initial render', () => {
-    render(<UseDidMountEffectTestComponent />);
+    act(() => {
+      render(<UseDidMountEffectTestComponent />);
+    });
+
     const button = screen.getByTestId('increment-button');
     const status = screen.getByTestId('callback-status');
 
     // Simulate a dependency change
-    button.click();
+    act(() => {
+      button.click();
+    });
     expect(status).toHaveTextContent('Triggered');
   });
 });
