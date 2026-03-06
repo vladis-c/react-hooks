@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.7] - 2026-03-06
+
+### Upgrades
+
+- Upgraded packages versions
+
+### Tests
+
+- Fixed some tests
+
 ## [1.0.5 - 1.0.6] - 2025-03-14
 
 ### Added
